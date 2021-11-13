@@ -2,7 +2,9 @@
 
 int main()
 {
-    printf("hello wakatekai!");
+    printf("hello wakatekai!\n");
+
+    printf("sub1\n");
 
     return 0;
 }
