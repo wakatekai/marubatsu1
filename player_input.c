@@ -4,18 +4,18 @@
 #include <stdio.h>
 #include"common.h"
 #include"player_input.h"
+#include"main.h"
 
-BOOL player_input(int player,int num_table[3][3]);
-int input(int);
+signed char input(PLAYER);
 
 //プレイヤーの取得とマス目配列の書き換え
-BOOL player_input(int player,int num_table[3][3])
+BOOL player_input(PLAYER player,signed char num_table[3][3])
 {
     BOOL end_flg;
 	//初期化
 	end_flg = FALSE;
     //プレイヤーのマス目位置入力
-    int position;
+    signed char position;
     scanf("%d",&position);
     //入力されたマス目位置によってマス目配列を書き換える
     switch (position){
@@ -54,8 +54,8 @@ BOOL player_input(int player,int num_table[3][3])
 }
 
 //入力したプレイヤーによってマス目配列に格納する数値を変える
-int input(int player){
-    int output;
+signed char input(PLAYER player){
+    signed char output;
 
     if(player == 0){
         output = 1;
