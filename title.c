@@ -19,7 +19,7 @@ BOOL title(void)
     unsigned char input_num;
 
     printf("○×ゲーム\n");
-    printf("1:開始\n2：終了\n");
+    printf("1：開始\n2：終了\n");
 
     /* 入力値取得 */
     scanf("%d",&input_num);

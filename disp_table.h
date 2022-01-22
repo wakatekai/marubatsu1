@@ -7,6 +7,6 @@
 
 #include "main.h"
 
-extern void disp_table(signed char num_table[TABLE_X_NUM][TABLE_Y_NUM]);
+extern void disp_table(signed char *num_table);
 
 #endif  /* DISP_TABLE_H */

@@ -8,7 +8,7 @@
 #include "main.h"
 #include "title.h"
 #include "disp_table.h"
-#include "player_input.h"
+/* #include "player_input.h" */
 #include "result_judge.h"
 
 /* 定数定義 */
@@ -42,9 +42,9 @@ int main(void)
         while ((end_flg == FALSE) && (result == RESULT_CONTD)) {
             /* 終了条件：中断値が入力された or ゲームの決着 */
 
-            /* disp_table(num_table); */  /* テーブル表示 */
+            disp_table(&num_table[0][0]);  /* テーブル表示 */
 
-            end_flg = player_input(player, num_table);    /* ユーザ入力 */
+            /* end_flg = player_input(player, num_table); */    /* ユーザ入力 */
 
             result = result_judge(num_table);   /* 結果判定 */
 
@@ -94,7 +94,7 @@ void end_message(JUDGE_RESULT result)
         break;
         case RESULT_CONTD:
         default:
-            prinft("中断が選択されました。ゲームを終了します。\n");
+            printf("中断が選択されました。ゲームを終了します。\n");
         break;
     }
     return;
