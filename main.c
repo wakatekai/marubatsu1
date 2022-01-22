@@ -39,12 +39,14 @@ int main(void)
 
         start_message();    /* 開始時メッセージ */
 
+        disp_table(&num_table[0][0]);  /* テーブル表示(初回) */
+
         while ((end_flg == FALSE) && (result == RESULT_CONTD)) {
             /* 終了条件：中断値が入力された or ゲームの決着 */
 
-            disp_table(&num_table[0][0]);  /* テーブル表示 */
-
             end_flg = player_input(player, num_table);    /* ユーザ入力 */
+
+            disp_table(&num_table[0][0]);  /* テーブル表示 */
 
             result = result_judge(num_table);   /* 結果判定 */
 
