@@ -3,15 +3,15 @@
 /*****************************************************************************/
 /* インクルード */
 #include <stdio.h>
+#include <stdlib.h>
 #include "common.h"
 #include "main.h"
 #include "title.h"
+#include "disp_table.h"
+/* #include "player_input.h" */
 #include "result_judge.h"
 
 /* 定数定義 */
-#define TABLE_X_NUM     (3)
-#define TABLE_Y_NUM     (3)
-
 #define TABLE_INIT      (0)
 
 /* プロトタイプ宣言 */
@@ -42,9 +42,9 @@ int main(void)
         while ((end_flg == FALSE) && (result == RESULT_CONTD)) {
             /* 終了条件：中断値が入力された or ゲームの決着 */
 
-            /* ここに画面表示関数を追加 */
+            disp_table(&num_table[0][0]);  /* テーブル表示 */
 
-            /* ここにユーザ入力関数を追加 */
+            /* end_flg = player_input(player, num_table); */    /* ユーザ入力 */
 
             result = result_judge(num_table);   /* 結果判定 */
 
@@ -55,6 +55,7 @@ int main(void)
     }
 
     printf("(デバッグ)main終了\n");
+    system("pause");
     return 0;
 }
 
@@ -78,8 +79,7 @@ void main_init(void)
 
 void start_message(void)
 {
-    /* ルールとか書く？ */
-    printf("(デバッグ)開始メッセージ\n");
+    /* ルールとか表示させる？ */
     return;
 }
 
@@ -94,7 +94,7 @@ void end_message(JUDGE_RESULT result)
         break;
         case RESULT_CONTD:
         default:
-            /* 中断した場合は何も表示しない */
+            printf("中断が選択されました。ゲームを終了します。\n");
         break;
     }
     return;
