@@ -19,10 +19,6 @@ BOOL player_input(int player,int num_table[3][3])
     scanf("%d",&position);
     //入力されたマス目位置によってマス目配列を書き換える
     switch (position){
-        case 0:
-            printf("ゲームを終了します。\n");
-    		end_flg = TRUE;
-            break;
         case 1:
             num_table[0][0] = input(player);
             break;
@@ -51,7 +47,6 @@ BOOL player_input(int player,int num_table[3][3])
             num_table[2][2] = input(player);
             break;
         default:
-            printf("正しく処理が実行されませんでした。\n");
     		end_flg = TRUE;
             break;
         }
