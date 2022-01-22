@@ -8,7 +8,7 @@
 #include "main.h"
 #include "title.h"
 #include "disp_table.h"
-/* #include "player_input.h" */
+#include "player_input.h"
 #include "result_judge.h"
 
 /* 定数定義 */
@@ -44,7 +44,7 @@ int main(void)
 
             disp_table(&num_table[0][0]);  /* テーブル表示 */
 
-            /* end_flg = player_input(player, num_table); */    /* ユーザ入力 */
+            end_flg = player_input(player, num_table);    /* ユーザ入力 */
 
             result = result_judge(num_table);   /* 結果判定 */
 
