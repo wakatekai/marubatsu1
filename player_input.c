@@ -1,11 +1,19 @@
+/*****************************************************************************/
+/* File Name : player_input.c                                                     */
+/*****************************************************************************/
 #include <stdio.h>
+#include"common.h"
+#include"player_input.h"
 
-void player_input(int player,int num_table[3][3]);
+BOOL player_input(int player,int num_table[3][3]);
 int input(int);
 
 //プレイヤーの取得とマス目配列の書き換え
-void player_input(int player,int num_table[3][3])
+BOOL player_input(int player,int num_table[3][3])
 {
+    BOOL end_flg;
+	//初期化
+	end_flg = FALSE;
     //プレイヤーのマス目位置入力
     int position;
     scanf("%d",&position);
@@ -13,6 +21,7 @@ void player_input(int player,int num_table[3][3])
     switch (position){
         case 0:
             printf("ゲームを終了します。\n");
+    		end_flg = TRUE;
             break;
         case 1:
             num_table[0][0] = input(player);
@@ -43,8 +52,10 @@ void player_input(int player,int num_table[3][3])
             break;
         default:
             printf("正しく処理が実行されませんでした。\n");
+    		end_flg = TRUE;
             break;
         }
+	return end_flg;
 }
 
 //入力したプレイヤーによってマス目配列に格納する数値を変える
