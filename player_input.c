@@ -8,16 +8,22 @@
 
 signed char input(PLAYER);
 
-//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å–å¾—ã¨ãƒã‚¹ç›®é…åˆ—ã®æ›¸ãæ›ãˆ
+//ƒvƒŒƒCƒ„[‚Ìæ“¾‚Æƒ}ƒX–Ú”z—ñ‚Ì‘‚«Š·‚¦
 BOOL player_input(PLAYER player,signed char num_table[3][3])
 {
     BOOL end_flg;
-	//åˆæœŸåŒ–
+	//‰Šú‰»
 	end_flg = FALSE;
-    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒã‚¹ç›®ä½ç½®å…¥åŠ›
+    //ƒvƒŒƒCƒ„[‚Ìƒ}ƒX–ÚˆÊ’u“ü—Í
+    if (player == PLAYER1){
+        printf("Player1 1`9‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+    }
+    else if(player == PLAYER2){
+        printf("Player2 1`9‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+    }
     signed char position;
     scanf("%d",&position);
-    //å…¥åŠ›ã•ã‚ŒãŸãƒã‚¹ç›®ä½ç½®ã«ã‚ˆã£ã¦ãƒã‚¹ç›®é…åˆ—ã‚’æ›¸ãæ›ãˆã‚‹
+    //“ü—Í‚³‚ê‚½ƒ}ƒX–ÚˆÊ’u‚É‚æ‚Á‚Äƒ}ƒX–Ú”z—ñ‚ğ‘‚«Š·‚¦‚é
     switch (position){
         case 1:
             num_table[0][0] = input(player);
@@ -47,13 +53,14 @@ BOOL player_input(PLAYER player,signed char num_table[3][3])
             num_table[2][2] = input(player);
             break;
         default:
+            printf("1`9‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
     		end_flg = TRUE;
             break;
         }
 	return end_flg;
 }
 
-//å…¥åŠ›ã—ãŸãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ã‚ˆã£ã¦ãƒã‚¹ç›®é…åˆ—ã«æ ¼ç´ã™ã‚‹æ•°å€¤ã‚’å¤‰ãˆã‚‹
+//“ü—Í‚µ‚½ƒvƒŒƒCƒ„[‚É‚æ‚Á‚Äƒ}ƒX–Ú”z—ñ‚ÉŠi”[‚·‚é”’l‚ğ•Ï‚¦‚é
 signed char input(PLAYER player){
     signed char output;
 
@@ -64,7 +71,7 @@ signed char input(PLAYER player){
         output = -1;
         return output;       
     }else{
-        printf("æ­£ã—ãå‡¦ç†ãŒå®Ÿè¡Œã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚\n");
+        printf("³‚µ‚­ˆ—‚ªÀs‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B\n");
         return 0;
     }
 }
