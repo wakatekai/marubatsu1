@@ -18,8 +18,26 @@ BOOL title(void)
     BOOL end_flg;
     unsigned char input_num;
 
-    printf("›~ƒQ[ƒ€\n");
-    printf("1FŠJn\n2FI—¹\n");
+    printf("  ›b›b~\n");
+    printf("  |{|{|\n");
+    printf("  ~b~b›\n");
+    printf("  |{|{|\n");
+    printf("  ›b~b›\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("                u    ›~ƒQ[ƒ€    v\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("                                          ›b›b›\n");
+    printf("                                          |{|{|\n");
+    printf("                                          ~b~b  \n");
+    printf("                                          |{|{|\n");
+    printf("                                          ›b  b~\n");
+    printf("\n");
+    printf("\n");
+    printf("                  1FŠJn 2FI—¹\n");
 
     /* “ü—Í’læ“¾ */
     scanf("%d",&input_num);

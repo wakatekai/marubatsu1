@@ -7,7 +7,8 @@
 typedef enum {
     RESULT_CONTD = 0,      /* 0:Œp‘± */
     RESULT_P1_WIN,         /* 1:Player1‚ÌŸ—˜ */
-    RESULT_P2_WIN          /* 2:Player2‚ÌŸ—˜ */
+    RESULT_P2_WIN,         /* 2:Player2‚ÌŸ—˜ */
+    RESULT_DRAW            /* 3:ˆø‚«•ª‚¯ */
 } JUDGE_RESULT;
 
 
