@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"
+#include "main.h"
 #include "disp_table.h"
 
 #define LETTER_NUM (((TABLE_X_NUM * 2) - 1) * (TABLE_Y_NUM * 2))
@@ -37,7 +38,7 @@ void disp_table(signed char *num_table)
 
     system("cls");  /* コンソール画面をクリアする */
 
-    for (loop = 0; loop < (unsigned char)LETTER_NUM; loop++)
+    for (loop = (unsigned char)0; loop < (unsigned char)LETTER_NUM; loop++)
     {
         switch (disp_letter[loop]) {
             case v:
@@ -55,13 +56,13 @@ void disp_table(signed char *num_table)
             case t:
                 /* テーブル内容を表示する */
                 switch (*(num_table++)) {
-                    case -1:
+                	case (signed char)TABLE_BATSU:
                         printf("%s", str_batsu);
                         break;
-                    case 0:
+                    case (signed char)TABLE_INIT:
                         printf("%s", str_init);
                         break;
-                    case 1:
+                    case (signed char)TABLE_MARU:
                         printf("%s", str_maru);
                         break;
                     default:

@@ -11,9 +11,6 @@
 #include "player_input.h"
 #include "result_judge.h"
 
-/* 定数定義 */
-#define TABLE_INIT      (0)
-
 /* プロトタイプ宣言 */
 void main_init(void);
 void start_message(void);
@@ -65,8 +62,8 @@ void main_init(void)
     unsigned char loop_x;
     unsigned char loop_y;
 
-    for (loop_x = 0; loop_x < (unsigned char)TABLE_X_NUM; loop_x++) {
-        for (loop_y = 0; loop_y < (unsigned char)TABLE_X_NUM; loop_y++) {
+    for (loop_x = (unsigned char)0; loop_x < (unsigned char)TABLE_X_NUM; loop_x++) {
+        for (loop_y = (unsigned char)0; loop_y < (unsigned char)TABLE_X_NUM; loop_y++) {
             num_table[loop_x][loop_y] = (signed char)TABLE_INIT;
         }
     }

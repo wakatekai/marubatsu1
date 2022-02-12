@@ -2,9 +2,10 @@
 /* File Name : Result Judge.c                                                */
 /*****************************************************************************/
 #include "result_judge.h"
+/* #include "main.h" */ /* ヘッダでinclude済み */
 
-#define PLAYER1_WIN     (3)
-#define PLAYER2_WIN     (-3)
+#define PLAYER1_WIN     (TABLE_X_NUM)
+#define PLAYER2_WIN     (-TABLE_X_NUM)
 
 #define INDEX_TBL_NUM   (8)
 
@@ -33,7 +34,7 @@ const CALC_INDEX_TABLE calc_index_table[INDEX_TBL_NUM] = {
 /* プロトタイプ宣言 */
 unsigned char count_zero(signed char *data, unsigned char size);
 
-JUDGE_RESULT result_judge(signed char num_table[3][3])
+JUDGE_RESULT result_judge(signed char num_table[TABLE_X_NUM][TABLE_Y_NUM])
 {
     JUDGE_RESULT result;
     unsigned char loop;
@@ -42,7 +43,7 @@ JUDGE_RESULT result_judge(signed char num_table[3][3])
 
     result = RESULT_CONTD;      /* 結果を継続で初期化 */
 
-    for (loop = 0; loop < INDEX_TBL_NUM; loop++) {
+    for (loop = (unsigned char)0; loop < INDEX_TBL_NUM; loop++) {
         sum = 0;
         sum += num_table[calc_index_table[loop].num1.x][calc_index_table[loop].num1.y];
         sum += num_table[calc_index_table[loop].num2.x][calc_index_table[loop].num2.y];
@@ -56,7 +57,7 @@ JUDGE_RESULT result_judge(signed char num_table[3][3])
             break;
         } else {
             /* 未入力が無ければ、引き分けと判定する */
-            zero_cnt = count_zero(&num_table[0][0], (unsigned char)9);
+            zero_cnt = count_zero(&num_table[0][0], (unsigned char)TABLE_SIZE);
             if (zero_cnt == (unsigned char)0) {
                 result = RESULT_DRAW;
             } else {
@@ -73,10 +74,10 @@ unsigned char count_zero(signed char *data, unsigned char size)
     unsigned char cnt;
     unsigned char loop;
     
-    cnt = 0;
+	cnt = (unsigned char)0;
     
-    for (loop = 0; loop < size; loop++) {
-        if (*(data + loop) == (signed char)0) {
+    for (loop = (unsigned char)0; loop < size; loop++) {
+        if (*(data + loop) == (signed char)TABLE_INIT) {
             cnt++;
         }
     }
