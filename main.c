@@ -56,7 +56,6 @@ int main(void)
         end_message(result);
     }
 
-    printf("(デバッグ)main終了\n");
     system("pause");
     return 0;
 }
@@ -81,7 +80,41 @@ void main_init(void)
 
 void start_message(void)
 {
-    /* ルールとか表示させる？ */
+    system("cls");  /* コンソール画面をクリアする */
+
+    printf("【ルール説明】\n");
+    printf("  ○×ゲームはプレイヤー2人で遊べるゲームです。\n");
+    printf("\n");
+    printf("  3×3の9マスをプレイヤー1、プレイヤー2の順で1マスずつ取り合っていきます。\n");
+    printf("\n");
+    printf("  プレイヤー1が選択したマスは「○」に、プレイヤー2が選択したマスは「×」となります。\n");
+    printf("\n");
+    printf("  交互にマスを取り合い、先に、縦・横・斜めのいずれかをそろえたプレイヤーの勝利です。\n");
+    printf("\n");
+    printf("  9マスすべてを取り合った状態でも勝敗がつかない場合は、引き分けとなります。\n");
+    printf("\n");
+    printf("\n");
+    printf("【操作説明】\n");
+    printf("  本ゲームは0～9の半角数字を入力して行います。\n");
+    printf("\n");
+    printf("   １｜２｜３\n");
+    printf("   －＋－＋－\n");
+    printf("   ４｜５｜６\n");
+    printf("   －＋－＋－\n");
+    printf("   ７｜８｜９\n");
+    printf("\n");
+    printf("  上記のようにマスは左上から1～9の数字が割り振られており、そのマスの数字を指定することで選択されます。\n");
+    printf("\n");
+    printf("  ゲームを中断したい場合は0を入力してください。\n");
+    printf("\n");
+    printf("【作成】\n");
+    printf("  若手会\n");
+    printf("   GitHub Account : 610engineer / alpc2632 / susususuin\n");
+    printf("   Link : https://github.com/wakatekai/marubatsu1\n");
+    printf("\n");
+
+
+    system("pause");
     return;
 }
 
@@ -93,6 +126,9 @@ void end_message(JUDGE_RESULT result)
         break;
         case RESULT_P2_WIN:
             printf("Player2の勝利\n");
+        break;
+        case RESULT_DRAW:
+            printf("引き分けで終了しました。\n");
         break;
         case RESULT_CONTD:
         default:

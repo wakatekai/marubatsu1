@@ -30,11 +30,15 @@ const CALC_INDEX_TABLE calc_index_table[INDEX_TBL_NUM] = {
     {{0, 2}, {1, 1}, {2, 0}}        /* Î‚ß(^) */
 };
 
+/* ƒvƒƒgƒ^ƒCƒvéŒ¾ */
+unsigned char count_zero(signed char *data, unsigned char size);
+
 JUDGE_RESULT result_judge(signed char num_table[3][3])
 {
     JUDGE_RESULT result;
     unsigned char loop;
     signed char sum;
+    unsigned char zero_cnt;
 
     result = RESULT_CONTD;      /* Œ‹‰Ê‚ğŒp‘±‚Å‰Šú‰» */
 
@@ -51,9 +55,31 @@ JUDGE_RESULT result_judge(signed char num_table[3][3])
             result = RESULT_P2_WIN;
             break;
         } else {
-            /* Ÿ”s‚ª‚Â‚©‚È‚¢ê‡‚Í”»’è‚ğŒp‘± */
+            /* –¢“ü—Í‚ª–³‚¯‚ê‚ÎAˆø‚«•ª‚¯‚Æ”»’è‚·‚é */
+            zero_cnt = count_zero(&num_table[0][0], (unsigned char)9);
+            if (zero_cnt == (unsigned char)0) {
+                result = RESULT_DRAW;
+            } else {
+                /* Ÿ”s‚ª‚Â‚©‚È‚¢ê‡‚Í”»’è‚ğŒp‘± */
+            }
         }
     }
 
     return result;
+}
+
+unsigned char count_zero(signed char *data, unsigned char size)
+{
+    unsigned char cnt;
+    unsigned char loop;
+    
+    cnt = 0;
+    
+    for (loop = 0; loop < size; loop++) {
+        if (*(data + loop) == (signed char)0) {
+            cnt++;
+        }
+    }
+    
+    return cnt;
 }
